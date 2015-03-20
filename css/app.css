@@ -8,6 +8,11 @@
   opacity: 0.95;
 }
 
+.status-closed {
+  background-color: #f0f0f0;
+  opacity: 0.95;
+}
+
 .hide {
   display: none;
 }
