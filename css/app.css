@@ -1,0 +1,21 @@
+.content.status-closed {
+  background-color: #f0f0f0;
+  opacity: 0.95;
+}
+
+.content.status-closed * {
+  background-color: #f0f0f0;
+  opacity: 0.95;
+}
+
+.hide {
+  display: none;
+}
+
+/*
+ * for bug
+ * http://stackoverflow.com/questions/26107433/ratchet-modal-bug-on-ios-8
+ */
+header.bar.bar-nav {
+  -webkit-transform: translateZ(0);
+}
