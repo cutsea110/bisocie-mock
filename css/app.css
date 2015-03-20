@@ -24,3 +24,9 @@
 header.bar.bar-nav {
   -webkit-transform: translateZ(0);
 }
+
+input[type=search]::-webkit-input-placeholder:before {
+    content:''; /* #xe807 */
+    font-family:Ratchicons;
+    margin-right:5px;
+}
