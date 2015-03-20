@@ -22,14 +22,9 @@
   </head>
   <body>
 
-    <header class="bar bar-nav">
-      <a class="icon icon-left-nav pull-left" href="./thread.html" data-transition="slide-out"></a>
-      <h1 class="title">情報処理概論II 前期課題12</h1>
-    </header>
-
     <!-- Make sure all your bars are the first things in your <body> -->
     <nav class="bar bar-tab">
-      <a class="tab-item active" href="./home.html">
+      <a class="tab-item" href="./home.html">
 	<span class="icon icon-bubbles"></span>
 	<span class="tab-label">Timeline</span>
       </a>
@@ -41,7 +36,7 @@
 	<span class="icon icon-bell"></span>
 	<span class="tab-label">Notify</span>
       </a>
-      <a class="tab-item" href="./profile.html">
+      <a class="tab-item active" href="./profile.html">
 	<span class="icon icon-person"></span>
 	<span class="tab-label">Profile</span>
       </a>
@@ -49,7 +44,12 @@
 
     <div class="content">
       <form class="content-padded">
-	<textarea rows="5" placeholder="comment"></textarea>
+	<input type="text" placeholder="account ID" value="123456789">
+	<input type="email" placeholder="you@example.com" value="seitoku-hanako@seitoku.ac.jp">
+	<input type="text" placeholder="branch" value="ITブランチ">
+	<input type="number" placeholder="entry year" value="2015">
+	<input type="number" placeholder="exit year" value="2015">
+
 	<a class="btn btn-negative btn-block" href="./thread.html" data-transition="slide-out">
 	  キャンセル
 	</a>
