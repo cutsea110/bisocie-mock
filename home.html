@@ -22,6 +22,28 @@
 
     <script>
       $(function () {
+
+        var infinity = function (dir) {
+          $.getJSON('./comments.json',
+          function (res) {
+            var ul = $('ul.table-view');
+            $.each(res, function (_, c) {
+              var li  = $('<li class="table-view-cell media">'),
+	          a   = $('<a class="navigate-right" href="./thread.html" data-transition="slide-in">'),
+		  img = $('<img class="media-object pull-left">'),
+		  div = $('<div class="media-body">'),
+		  p   = $('<p>');
+	      img.attr('src', c.icon);
+	      div.append(c.name).append(p.text(c.comment));
+	      if (dir == 'pre') {
+	        ul.prepend(li.append(a.append(img).append(div)));
+	      } else {
+	        ul.append(li.append(a.append(img).append(div)));
+	      }
+	    });
+	  });
+        };
+
         $('.content').scroll(function () {
 //          console.log($('.card').css('border-width') + "," + $('.card').css('margin-top'));
 //          console.log("content.scrollTop: " + $('.content').scrollTop() + ",content.height: " + $('.content').height() + ",card.height: " + $('.card').height() + ", window.height: " + $(window).height() );
@@ -33,24 +55,10 @@
 
           if ( $('.content').scrollTop() <= 0 ) {
 	    console.log('Top reached.');
-	    $.getJSON('./comments.json',
-	    function (res) {
-	      var ul = $('ul.table-view');
-	      $.each(res, function (_, c) {
-console.log(c);
-	        var li  = $('<li class="table-view-cell media">'),
-		    a   = $('<a class="navigate-right" href="./thread.html" data-transition="slide-in">'),
-		    img = $('<img class="media-object pull-left">'),
-		    div = $('<div class="media-body">'),
-		    p   = $('<p>');
-		img.attr('src', c.icon);
-		div.append(c.name).append(p.text(c.comment));
-		ul.prepend(li.append(a.append(img).append(div)));
-	      });
-	    }
-	    );
+	    infinity('pre');
 	  } else if ( $('.card').height() - $('.content').scrollTop() + rest <= $('.content').height() ) {
 	    console.log('Bottom reached.');
+	    infinity('post');
 	  }
         });
       });
