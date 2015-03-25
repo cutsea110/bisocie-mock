@@ -23,42 +23,48 @@
     <script>
       $(function () {
 
+        // 2 * $('.card).css('border-width')
+        // + $('.card').css('margin-top')
+        // + $('.card').css('margin-bottom')
+        var rest = 22;
+
         var infinity = function (dir) {
           $.getJSON('./comments.json',
           function (res) {
-            var ul = $('ul.table-view');
-            $.each(res, function (_, c) {
-              var li  = $('<li class="table-view-cell media">'),
-	          a   = $('<a class="navigate-right" href="./thread.html" data-transition="slide-in">'),
-		  img = $('<img class="media-object pull-left">'),
-		  div = $('<div class="media-body">'),
+            var ul  = $('ul.table-view'),
+                oldHeight = $('.card').height();
+
+            $.each(res, function (idx, c) {
+              var li  = $('<li>').addClass('table-view-cell media fade-in'),
+	          a   = $('<a>').addClass('navigate-right')
+	                        .attr({ 'href' : './thread.html'
+	                              , 'data-transition' : 'slide-in'
+	                              }),
+		  img = $('<img>').addClass('media-object pull-left'),
+		  div = $('<div>').addClass('media-body'),
 		  p   = $('<p>');
 	      img.attr('src', c.icon);
 	      div.append(c.name).append(p.text(c.comment));
+              li.append(a.append(img).append(div));
 	      if (dir == 'pre') {
-	        ul.prepend(li.append(a.append(img).append(div)));
+	        ul.prepend(li);
+	        $('.content').scrollTop($('.card').height() - oldHeight);
 	      } else {
-	        ul.append(li.append(a.append(img).append(div)));
+	        ul.append(li);
 	      }
 	    });
 	  });
         };
 
         $('.content').scroll(function () {
-//          console.log($('.card').css('border-width') + "," + $('.card').css('margin-top'));
-//          console.log("content.scrollTop: " + $('.content').scrollTop() + ",content.height: " + $('.content').height() + ",card.height: " + $('.card').height() + ", window.height: " + $(window).height() );
 
-          // 2 * $('.card).css('border-width')
-          // + $('.card').css('margin-top')
-          // + $('.card').css('margin-bottom')
-          var rest = 22;
-
-          if ( $('.content').scrollTop() <= 0 ) {
-	    console.log('Top reached.');
-	    infinity('pre');
-	  } else if ( $('.card').height() - $('.content').scrollTop() + rest <= $('.content').height() ) {
-	    console.log('Bottom reached.');
-	    infinity('post');
+	  var topReached = $('.content').scrollTop() <= 0,
+	      btmReached = $('.card').height() + rest - $('.content').scrollTop()
+			   <= $('.content').height();
+          if ( topReached ) {
+	    setTimeout(infinity, 800, 'pre');
+	  } else if ( btmReached ) {
+	    setTimeout(infinity, 800, 'post');
 	  }
         });
       });
