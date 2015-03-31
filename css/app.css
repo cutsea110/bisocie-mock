@@ -41,3 +41,23 @@ img.center {
   margin-left: auto;
   margin-right: auto;
 }
+
+.toggle.toggle-status {
+  width: 90px;
+}
+
+.toggle.toggle-status.active:before {
+  content: "OPEN";
+}
+
+.toggle.toggle-status:before {
+  content: "CLOSE";
+}
+
+.toggle.toggle-status.active .toggle-handle {
+  -webkit-transform: translate3d(60px, 0, 0);
+  -moz-transform: translate3d(60px, 0, 0);
+  -ms-transform: translate3d(60px, 0, 0);
+  -o-transform: translate3d(60px, 0, 0);
+  transform: translate3d(60px, 0, 0);
+}

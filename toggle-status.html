@@ -22,19 +22,20 @@
   </head>
   <body>
 
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" href="./closed.html" data-transition="slide-out"></a>
+      <h1 class="title">課題を提出してください</h1>
+    </header>
+
     <!-- Make sure all your bars are the first things in your <body> -->
     <nav class="bar bar-tab">
-      <a class="tab-item" href="./home.html">
-	<span class="icon icon-bubbles"></span>
-	<span class="tab-label">Timeline</span>
+      <a class="tab-item active" href="./home.html">
+	<span class="icon icon-bubbles3"></span>
+	<span class="tab-label">View</span>
       </a>
-      <a class="tab-item active" href="./project-list.html">
-	<span class="icon icon-folder-open"></span>
-	<span class="tab-label">Project</span>
-      </a>
-      <a class="tab-item" href="./notify.html">
-	<span class="icon icon-bell"></span>
-	<span class="tab-label">Notify</span>
+      <a class="tab-item" href="./new-issue.html">
+	<span class="icon icon-bubble2"></span>
+	<span class="tab-label">New</span>
       </a>
       <a class="tab-item" href="./profile.html">
 	<span class="icon icon-person"></span>
@@ -43,22 +44,14 @@
     </nav>
 
     <div class="content">
-      <form class="content-padded">
-	<input type="text" placeholder="title">
-	<textarea rows="5" placeholder="description"></textarea>
-	<div class="input-row">
-	  <label>Active</label>
-	  <div class="toggle active pull-right">
+      <ul class="table-view">
+	<li class="table-view-cell">
+	  ステータス
+	  <div class="toggle toggle-status active">
 	    <div class="toggle-handle"></div>
 	  </div>
-	</div>
-	<a class="btn btn-negative btn-block" href="./project-list.html" data-transition="slide-out">
-	  キャンセル
-	</a>
-	<a class="btn btn-positive btn-block" href="./edit-project.html" data-transition="slide-in">
-	  作成
-	</a>
-      </form>
+	</li>
+      </ul>
     </div>
   </body>
 </html>
