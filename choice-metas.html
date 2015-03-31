@@ -25,32 +25,57 @@
     <!-- Make sure all your bars are the first things in your <body> -->
     <nav class="bar bar-tab">
       <a class="tab-item active" href="./home.html">
-	<span class="icon icon-bubbles"></span>
-	<span class="tab-label">Timeline</span>
+	<span class="icon icon-bubbles3"></span>
+	<span class="tab-label">View</span>
       </a>
-      <a class="tab-item" href="./project-list.html">
-	<span class="icon icon-folder-open"></span>
-	<span class="tab-label">Project</span>
+      <a class="tab-item" href="">
+	<span class="icon icon-bubble2"></span>
+	<span class="tab-label">New</span>
       </a>
-      <a class="tab-item" href="./notify.html">
-	<span class="icon icon-bell"></span>
-	<span class="tab-label">Notify</span>
-      </a>
-      <a class="tab-item" href="./profile.html">
+      <a class="tab-item" href="">
 	<span class="icon icon-person"></span>
 	<span class="tab-label">Profile</span>
       </a>
     </nav>
 
     <div class="content">
+      <div class="card">
+	<ul class="table-view">
+	  <li class="table-view-cell media">
+	    <div class="media-body">
+	      <span class="icon icon-price-tags"></span>
+	      タグ
+	      <a href="#" class="pull-right check">
+		<span class="icon icon-checkmark"></span>
+	      </a>
+	    </div>
+	  </li>
+	  <li class="table-view-cell media">
+	    <div class="media-body">
+	      <span class="icon icon-users"></span>
+	      メンバー
+	      <a href="#" class="pull-right check">
+		<span class="icon icon-checkmark"></span>
+	      </a>
+	    </div>
+	  </li>
+	  <li class="table-view-cell media">
+	    <div class="media-body">
+	      <span class="icon icon-calendar"></span>
+	      期限
+	      <a href="#" class="pull-right check">
+		<span class="icon icon-checkmark"></span>
+	      </a>
+	    </div>
+	  </li>
+	</ul>
+      </div>
       <form class="content-padded">
-	<input type="text" placeholder="subject">
-	<textarea rows="5" placeholder="comment"></textarea>
 	<a class="btn btn-negative btn-block" href="./thread.html" data-transition="slide-out">
 	  キャンセル
 	</a>
-	<a class="btn btn-positive btn-block" href="./thread.html" data-transition="slide-out">
-	  送信
+	<a class="btn btn-positive btn-block" href="./copy-new-issue.html" data-transition="slide-in">
+	  コピー
 	</a>
       </form>
     </div>
